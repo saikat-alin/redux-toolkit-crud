@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import AddBook from './pages/AddBook';
+import EditBook from './pages/EditBook';
+import Error from './pages/Error';
+import Home from "./pages/Home";
+import ViewBook from './pages/ViewBook';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="*" element={<Error />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/show-books" element={<ViewBook />} />
+        <Route path="/add-book" element={<AddBook />} />
+        <Route path="/edit-book" element={<EditBook />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
